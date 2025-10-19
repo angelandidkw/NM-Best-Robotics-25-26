@@ -1,11 +1,14 @@
 #region VEXcode Generated Robot Configuration
 from vex import *
 import urandom
-import math
 
 
 # wait for rotation sensor to fully initialize
 wait(30, MSEC)
+
+
+brain = Brain()
+controller = Controller()
 
 
 # Make random actually random
@@ -13,8 +16,9 @@ def initializeRandomSeed():
     wait(100, MSEC)
     random = brain.battery.voltage(MV) + brain.battery.current(CurrentUnits.AMP) * 100 + brain.timer.system_high_res()
     urandom.seed(int(random))
-      
-# Set random seed 
+
+
+# Set random seed
 initializeRandomSeed()
 
 
@@ -30,9 +34,6 @@ wait(200, MSEC)
 print("\033[2J")
 
 #endregion VEXcode Generated Robot Configuration
-
-brain=Brain()
-controller=Controller()
 
 motor_1 = Motor(PORT1)
 motor_2 = Motor(PORT2)
