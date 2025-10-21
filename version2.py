@@ -1,14 +1,11 @@
 #region VEXcode Generated Robot Configuration
 from vex import *
 import urandom
+import math
 
 
 # wait for rotation sensor to fully initialize
 wait(30, MSEC)
-
-
-brain = Brain()
-controller = Controller()
 
 
 # Make random actually random
@@ -16,9 +13,8 @@ def initializeRandomSeed():
     wait(100, MSEC)
     random = brain.battery.voltage(MV) + brain.battery.current(CurrentUnits.AMP) * 100 + brain.timer.system_high_res()
     urandom.seed(int(random))
-
-
-# Set random seed
+      
+# Set random seed 
 initializeRandomSeed()
 
 
@@ -35,13 +31,14 @@ print("\033[2J")
 
 #endregion VEXcode Generated Robot Configuration
 
-motor_1 = Motor(PORT1)
-motor_2 = Motor(PORT2)
+brain=Brain()
+controller=Controller()
 
-# Tank drive control loop
+servo = Servo(brain.three_wire_port.a)
+servo.set_position(0)
+
 while True:
     axis2 = controller.axis2.position()  # -100..100
-    
     axis1 = controller.axis1.position()  # -100..100
     
     left_speed = axis2 + axis1   # Forward/back + left/right
@@ -59,3 +56,11 @@ while True:
     else:
         motor_2.spin(FORWARD, right_speed, PERCENT)
     
+    # Servo control
+    if controller.buttonB.pressing(): # Change servo position to 90 degrees
+        servo.set_position(90)
+        brain.screen.printf(f"Servo at {servo.position()}")
+    elif controller.buttonA.pressing(): # Change servo position to 0 degrees
+        servo.set_position(0)
+        brain.screen.printf(f"Servo at {servo.position()}")
+
