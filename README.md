@@ -6,7 +6,8 @@ This repository gathers small VEX programs that help test servo control and tank
 ## File Guide
 * `version1.py` lets the controller buttons move a servo to stored angles and returns it to center when the button is released.
 * `version2.py` provides a steady tank drive loop that mixes the vertical and horizontal joystick axes to command two drive motors. Addtionally provide a servo to move 90 and move back to 0.
-* `version3.py` Working a tank drive system 
+* `version3.py` Working a tank drive system was found that error in code 
+# `version4.p` working tank drive system and servo movemnetr
 
 ## Getting Started
 1. Open VEXcode in Python or C plus plus mode as needed.
