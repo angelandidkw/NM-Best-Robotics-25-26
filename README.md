@@ -1,4 +1,4 @@
-# VEX Robotics Practice Suite
+# VEX Best Robotics
 
 ## Overview
 This repository gathers small VEX programs that help test servo control and tank driving. Each script is ready to load through VEXcode and can be adjusted for classroom or workshop practice.
