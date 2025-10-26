@@ -12,7 +12,7 @@ brain=Brain()
 motor_1 = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
 motor_2 = Motor(Ports.PORT2, GearSetting.RATIO_18_1, False)
 servo_a = Servo(brain.three_wire_port.a)
-
+servo_b = Servo(brain.three_wire_port.b)
 
 
 
