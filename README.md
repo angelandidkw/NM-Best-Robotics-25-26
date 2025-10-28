@@ -1,7 +1,7 @@
 # VEX Best Robotics
-
+-# I didn't know how much people saw this but Hello! From Equus Team 🙏
 ## Overview
-This repository gathers small VEX programs that help test servo control and tank driving. Each script is ready to load through VEXcode and can be adjusted for classroom or workshop practice.
+This repository gathers small VEX programs that help test servo control and tank driving. Each script is ready to load through VEXcode and can be adjusted for classroom or workshop practice. 
 
 ## File Guide
 * `version1.py` lets the controller buttons move a servo to stored angles and returns it to center when the button is released.
