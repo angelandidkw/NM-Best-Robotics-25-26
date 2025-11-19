@@ -59,35 +59,16 @@ print("\033[2J")
 
 brain=Brain()
 controller=Controller()
-
-
-
-
 position = 0
-
-
-
-
 servo =  Servo(brain.three_wire_port.a)
 servo.set_position(-50,DEGREES)
-
-
-
-
-
-
-
-
 while True:
-
 
    axis3 = controller.axis3.position()  # -100..100
    axis1 = controller.axis1.position()  # -100..100
- 
-   left_speed = axis3 + axis1   # Forward/back + left/right
-   
-   right_speed = axis3 - axis1 # Forward/back - left/right
 
+   left_speed = axis3 + axis1   # Forward/back + left/right
+   right_speed = axis3 - axis1 # Forward/back - left/right
 
    if controller.buttonL2.pressing():
     	motor_3.spin(REVERSE, 200, PERCENT)
@@ -96,12 +77,9 @@ while True:
    else:
       motor_3.stop()
 
-
    if controller.buttonR1.pressing() == True:
     left_speed = left_speed * 0.4
     right_speed = right_speed * 0.4
-
-
  
    # Apply deadband and control left motor
    if abs(left_speed) < 5: # abs removes the negative before evaluating the code
